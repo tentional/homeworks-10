@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="css/style.css ">
+   <title>Завдання 5</title>
+</head>
+<body>
+   <script>
+
+      // 5)Підрахувати кількість змін цін
+
+         // Формуємо рандом масив //
+         const userNumberPrices = parseInt(prompt("Введіть кількість цін", 3));
+         const min = 1;
+         const max = 10000;
+   
+         function getArrayPrices(userNumberPrices, min, max) {
+         let arrayPrices = [];
+   
+         for (let i = 0; i < userNumberPrices; i++) {
+            let randomNumber = min + Math.floor(Math.random() * (max - min) + min);
+            arrayPrices.push(randomNumber);
+         }
+            return arrayPrices;
+         }
+         const arrayPrices = getArrayPrices(userNumberPrices, min, max);
+   
+   
+   
+            // Обчислення
+            
+            let priceChangeCounter = arrayPrices.reduce((counter, el, i, arr) => (el !== arr[i - 1] ? counter + 1 : counter), 0);
+            document.write(`Початковий масив цін = [${arrayPrices}], <br>`);
+            document.write(`Кількість змін цін -  ${priceChangeCounter} <br>`);
+   </script>
+</body>
+</html>

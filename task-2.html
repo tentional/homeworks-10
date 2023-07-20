@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="css/style.css ">
+   <title>Завдання 3</title>
+</head>
+<body>
+   <script>
+      // 3)Сформувати список з тих цін, які більші за попереднє значення
+
+        // Формуємо рандом масив //
+        const userNumberPrices = parseInt(prompt("Введіть кількість цін", 3));
+        const min = 1;
+        const max = 10000;
+  
+        function getArrayPrices(userNumberPrices, min, max) {
+          let arrayPrices = [];
+  
+          for (let i = 0; i < userNumberPrices; i++) {
+            let randomNumber = min + Math.floor(Math.random() * (max - min) + min);
+            arrayPrices.push(randomNumber);
+          }
+           return arrayPrices;
+        }
+        const arrayPrices = getArrayPrices(userNumberPrices, min, max);
+         // Обчислення
+
+         // 3)Сформувати список з тих цін, які більші за попереднє значення
+            let numberGreaterThanPrevious = arrayPrices.filter((el, i, arr) => el > arr[i - 1]);
+         // Виведення
+            document.write(`Початковий масив цін = [${arrayPrices}], <br>`);
+            document.write(`Масив з  тих цін, які більші за попереднє значення -  ${numberGreaterThanPrevious} <br>`);
+     </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="css/style.css ">
+   <title>9</title>
+</head>
+<body>
+   <script>
+      // 9)Підрахувати суму цін, що більше за 1000
+            // Формуємо рандом масив //
+         const userNumberPrices = parseInt(prompt("Введіть кількість цін", 3));
+         const min = 1;
+         const max = 10000;
+   
+         function getArrayPrices(userNumberPrices, min, max) {
+         let arrayPrices = [];
+   
+         for (let i = 0; i < userNumberPrices; i++) {
+            let randomNumber = min + Math.floor(Math.random() * (max - min) + min);
+            arrayPrices.push(randomNumber);
+         }
+            return arrayPrices;
+         }
+         const arrayPrices = getArrayPrices(userNumberPrices, min, max);
+   
+         let priceGreater1000Summ = arrayPrices.reduce((counter, el) => (el > 1000 ? counter + el : counter), 0);
+         document.write(`Початковий масив цін = [${arrayPrices}], <br>`);
+         document.write(`Сума цін, що більші за 1000 -  ${priceGreater1000Summ} <br>`);   
+   </script>
+</body>
+</html>

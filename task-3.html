@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="css/style.css ">
+   <title>Завдання 4</title>
+</head>
+<body>
+   <script>
+   // 4)Сформувати новий масив, що міститиме значення цін у відсотках стосовно максимального
+
+
+         // Формуємо рандом масив //
+      const userNumberPrices = parseInt(prompt("Введіть кількість цін", 3));
+      const min = 1;
+      const max = 10000;
+
+      function getArrayPrices(userNumberPrices, min, max) {
+      let arrayPrices = [];
+
+      for (let i = 0; i < userNumberPrices; i++) {
+         let randomNumber = min + Math.floor(Math.random() * (max - min) + min);
+         arrayPrices.push(randomNumber);
+      }
+         return arrayPrices;
+      }
+      const arrayPrices = getArrayPrices(userNumberPrices, min, max);
+
+
+
+         // Обчислення
+      let maxNumber = Math.max(...arrayPrices);
+      let percentageNumberToMax = arrayPrices.map((el) => (el / maxNumber) * 100);
+      document.write(`Початковий масив цін = [${arrayPrices}], <br>`);
+      document.write("Масив , що міститиме значення цін у відсотках стосовно максимального -  ");
+      for (const num of percentageNumberToMax) {
+         document.write(`${num.toFixed(2)}%;`);
+      }
+      document.write(`<br>`);
+   </script>
+</body>
+</html>

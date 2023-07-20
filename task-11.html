@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="css/style.css ">
+   <title>12</title>
+</head>
+<body>
+   <script>
+      // 12)Знайти останню ціну, що більше за 1000
+      // Формуємо рандом масив //
+      const userNumberPrices = parseInt(prompt("Введіть кількість цін", 3));
+      const min = 1;
+      const max = 10000;
+
+      function getArrayPrices(userNumberPrices, min, max) {
+      let arrayPrices = [];
+
+      for (let i = 0; i < userNumberPrices; i++) {
+         let randomNumber = min + Math.floor(Math.random() * (max - min) + min);
+         arrayPrices.push(randomNumber);
+      }
+         return arrayPrices;
+      }
+      const arrayPrices = getArrayPrices(userNumberPrices, min, max);
+
+
+
+			let lastPriceGreater1000 = arrayPrices.findLast((el) => el > 1000);
+         document.write(`Початковий масив цін = [${arrayPrices}], <br>`);
+			document.write(`Остання ціна, що більше за 1000 -  ${lastPriceGreater1000} <br>`);
+   </script>
+</body>
+</html>
